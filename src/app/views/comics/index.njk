@@ -1,43 +1,30 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Marvel Comics</title>
-        <link rel="stylesheet" href="/styles.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    </head>
-    <body>
-        <div class="banner-navbar">
-            <div class="image">
-                <section></section>
-            </div>
-            <div class="navbar">
-                <div><input type="text" name="search" placeholder="Search"></div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="cards">
-                {% for comic in comics %}
-                    <div class="comic-card">
+{% extends 'layout.njk' %}
+{% block content %}
+    <div class="container">
+        <div class="cards">
+            {% for comic in comics %}
+                <a href="/comics/{{ comic.id }}" class="comic-card">
+                    <div>
                         <img src="{{ comic.thumbnail }}.{{ comic.extension }}" alt="">
-                        <div class="title">
-                            <strong title="{{ comic.title }}">{{ comic.title }}</strong>
+                            <div class="title">
+                                <strong title="{{ comic.title }}">{{ comic.title }}</strong>
+                            </div>
+                            <div class="description">
+                                <span>
+                                    {% if comic.description and comic.description != 'null' and comic.description != ' ' %}
+                                        {{ comic.description }}
+                                    {% else %}
+                                        No description!
+                                    {% endif %}
+                                </span>
+                            </div>
                         </div>
-                        <div class="description">
-                            <span>
-                                {% if comic.description and comic.description != 'null' and comic.description != ' ' %}
-                                    {{ comic.description }}
-                                {% else %}
-                                    No description!
-                                {% endif %}
-                            </span>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
+                    {% endfor %}
+                </div>
+            </a>
             <div class="pagination-wrapper">
                 <div class="pagination" data-page={{ pagination.page }} data-total={{ pagination.total }} data-filter={{ filter }}></div>
             </div>
         </div>
-        <script src="/scripts.js"></script>
-    </body>
-</html>
+    </div>
+{% endblock content %}

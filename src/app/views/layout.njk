@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+            <title>Marvel Comics</title>
+        {% endblock %}
+        <link rel="stylesheet" href="/styles.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body>
+        <div class="banner-navbar">
+            <div class="image">
+                <section></section>
+            </div>
+            <div class="navbar">
+                <div class="logo">
+                    <a href="/comics">Marvel Comics</a>
+                </div>
+                <div class="search-wrapper">
+                    <form action="/comics" method="GET">
+                        <input type="text" name="filter" placeholder="Comic title" value={{ filter }}>
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html></div>{% block content %}{% endblock content %}<script src="/scripts.js"></script></body></html>

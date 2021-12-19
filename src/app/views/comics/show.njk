@@ -1,0 +1,35 @@
+{% extends 'layout.njk' %}
+{% block content %}
+    <div class="container">
+        <div class="card">
+            <div class="image">
+                <img src="{{ comic[0].thumbnail.path }}.{{ comic[0].thumbnail.extension }}" alt=""></div>
+                <div class="info">
+                    <div class="title">
+                        <strong>{{ comic[0].title }}</strong>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <span>Pages: {{ comic[0].pageCount }}</span>
+                            <span>Format: {{ comic[0].format }}</span>
+                            <span>Price: ${{ comic[0].prices[0].price }}</span>
+                            <span>Date: {{ comic[0].dates[0].date }}</span>
+                        </div>
+                        <div class="column">
+                            <div class="text">
+                                {% if comic[0].textObjects[0].text and comic[0].textObjects[0].text != 'null' and comic[0].textObjects[0].text != ' ' %}
+                                    <span>{{ comic[0].textObjects[0].text }}</span>
+                                {% else %}
+                                    <span>No description!</span>
+                                {% endif %}
+                            </div>
+                            <div class="checkout-button">
+                                <a href="">Checkout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

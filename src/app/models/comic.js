@@ -1,4 +1,5 @@
 const db = require('../../config/db')
+const fetch = require('node-fetch')
 
 module.exports = {
     all(callback) {
@@ -15,9 +16,18 @@ module.exports = {
                     ...comic
                 }
             })
-
             callback(comics)
 
+        })
+    },
+    find(id, time, publicKey, hash, limit, callback) {
+        fetch(`http://gateway.marvel.com/v1/public/comics/${id}?ts=${time}&apikey=${publicKey}&hash=${hash}&limit=${limit}&offset=0`)
+        .then(response => response.json())
+        .then(json => {
+            const comic = json
+        
+            // console.log(comic.data.results)
+            callback(comic.data.results)
         })
     },
     paginate(params) {
@@ -50,9 +60,9 @@ module.exports = {
         db.query(query, [limit, offset], (err, results) => {
             if (err) throw `Database Error! ${err}`
 
-            const comics = results.rows.map((post) => {
+            const comics = results.rows.map((comic) => {
                 return {
-                    ...post
+                    ...comic
                 }
             })
             callback(comics)
