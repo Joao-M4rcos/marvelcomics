@@ -382,7 +382,7 @@ body {
 
 .container .payment-wrapper .details .client .item:nth-child(2) .duo input,
 .container .payment-wrapper .details .client .item:nth-child(5) .duo input {
-  padding: 7% 0;
+  padding: 7% 0 7% 4%;
 }
 
 .container .payment-wrapper .details .client .item input {
@@ -392,7 +392,6 @@ body {
   border-radius: 4px;
   outline: none;
   color: #555;
-  font-weight: bold;
   font-size: 18px;
 }
 

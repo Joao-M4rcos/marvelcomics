@@ -48,7 +48,7 @@ module.exports = {
         Comic.find(req.params.id, time, publicKey, hash, limit, (comic) => {
             if(!comic) return res.send("Comic not found!")
 
-            comic[0].dates[0].date = new Date(comic[0].dates[0].date).toLocaleDateString()
+            comic[0].dates[0].date = new Date(comic[0].dates[0].date).toLocaleDateString()   
             return res.render("comics/show", { comic })
         })
     },

@@ -1,6 +1,64 @@
 const currentPage = location.pathname
 const menuItems = document.querySelectorAll("header .links a")
 
+const Mask = {
+    apply(input, func) {
+        setTimeout(() => {
+            input.value = Mask[func] (input.value)
+        }, 1)
+    },
+    cpf (value) {
+        value = value.replace(/\D/d,"")
+
+        if(value.length > 13) value = value.slice(0, -1)
+
+        value = value.replace(/(\d{3})(\d)/, "$1.$2")
+
+        value = value.replace(/(\d{3})(\d)/, "$1.$2")
+
+        value = value.replace(/(\d{3})(\d)/, "$1$2")
+
+        return value
+    },
+    cardNumber(value) {
+        value = value.replace(/\D/d,"")
+
+        if(value.length > 18) value = value.slice(0, -1)
+
+        value = value.replace(/(\d{4})(\d)/, "$1-$2")
+
+        value = value.replace(/(\d{4})(\d)/, "$1-$2")
+
+        value = value.replace(/(\d{4})(\d)/, "$1-$2")
+
+        value = value.replace(/(\d{4})(\d)/, "$1-$2")
+
+        return value
+    },
+    validity(value) {
+        value = value.replace(/\D/d,"")
+
+        if(value.length > 4) value = value.slice(0, -1)
+
+        value = value.replace(/(\d{2})(\d)/, "$1/$2")
+
+        return value
+    },
+    birthDate(value) {
+        value = value.replace(/\D/d,"")
+
+        if(value.length > 8) value = value.slice(0, -1)
+
+        value = value.replace(/(\d{2})(\d)/, "$1/$2")
+
+        value = value.replace(/(\d{2})(\d)/, "$1/$2")
+
+        value = value.replace(/(\d{3})(\d)/, "$1/$2")
+
+        return value
+    }
+}
+
 for (item of menuItems) {
     if (currentPage.includes(item.getAttribute("href"))) {
         item.classList.add("active")
@@ -66,3 +124,6 @@ const pagination = document.querySelector(".pagination")
 if(pagination) {
     createPagination(pagination)
 }
+
+
+

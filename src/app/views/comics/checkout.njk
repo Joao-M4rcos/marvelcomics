@@ -13,20 +13,20 @@
                     <div class="item">
                         <span>Card number</span>
                         <div>
-                            <input type="text"/>
+                            <input type="text" onkeydown="Mask.apply(this, 'cardNumber')"/>
                         </div>
                     </div>
                     <div class="item">
                         <div class="duo">
                             <span>Validity</span>
                             <div>
-                                <input type="text"/>
+                                <input type="text" placeholder="MM/AA" onkeydown="Mask.apply(this, 'validity')"/>
                             </div>
                         </div>
                         <div class="duo">
                             <span>Security number</span>
                             <div>
-                                <input type="text"/>
+                                <input type="text" placeholder="CVV"/>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                     <div class="item">
                         <span>CPF</span>
                         <div>
-                            <input type="text"/>
+                            <input type="text" placeholder="___.___.___-__" onkeydown="Mask.apply(this, 'cpf')"/>
                         </div>
                     </div>
                     <div class="item">
@@ -52,7 +52,7 @@
                         <div class="duo">
                             <span>Birth date</span>
                             <div>
-                                <input type="text"/>
+                                <input type="text" placeholder="DD/MM/AAAA" class="date"/>
                             </div>
                         </div>
                     </div>
