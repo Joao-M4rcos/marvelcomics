@@ -9,5 +9,6 @@ routes.get("/", (req, res) => {
 
 routes.get('/comics', ComicController.index)
 routes.get('/comics/:id', ComicController.show)
+routes.get('/comics/checkout/:id', ComicController.showCheckout)
 
 module.exports = routes

@@ -12,7 +12,7 @@ const time = Number(new Date())
 
 const hash = md5(time + privateKey + publicKey)
 
-const limit = 20
+const limit = 30
 
 module.exports = {
     index(req, res) { 
@@ -50,6 +50,13 @@ module.exports = {
 
             comic[0].dates[0].date = new Date(comic[0].dates[0].date).toLocaleDateString()
             return res.render("comics/show", { comic })
+        })
+    },
+    showCheckout(req, res) {
+        Comic.find(req.params.id, time, publicKey, hash, limit, (comic) => {
+            if(!comic) return res.send("Comic not found!")
+
+            return res.render("comics/checkout", { comic })
         })
     }
 }

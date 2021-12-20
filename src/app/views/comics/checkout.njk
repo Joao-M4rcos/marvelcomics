@@ -1,0 +1,110 @@
+{% extends 'layout.njk' %}
+{% block content %}
+    <div class="container">
+        <div class="payment-wrapper">
+            <div class="header">
+                <span class="material-icons-outlined">
+                    credit_card
+                </span>
+                <strong>Credit Card</strong>
+            </div>
+            <div class="details">
+                <div class="client">
+                    <div class="item">
+                        <span>Card number</span>
+                        <div>
+                            <input type="text"/>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="duo">
+                            <span>Validity</span>
+                            <div>
+                                <input type="text"/>
+                            </div>
+                        </div>
+                        <div class="duo">
+                            <span>Security number</span>
+                            <div>
+                                <input type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span>Full name</span>
+                        <div>
+                            <input type="text"/>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span>CPF</span>
+                        <div>
+                            <input type="text"/>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="duo">
+                            <span>Phone number</span>
+                            <div>
+                                <input type="text"/>
+                            </div>
+                        </div>
+                        <div class="duo">
+                            <span>Birth date</span>
+                            <div>
+                                <input type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="comic">
+                        <div class="title">
+                            <strong>Order resume</strong>
+                        </div>
+                        <div class="prod-detail">
+                            <div class="sub-text">
+                                <span>Order items</span>
+                            </div>
+                            <div class="product">
+                                <p>{{ comic[0].title }}</p>
+                                <div class="quant-price">
+                                    <span>1x</span>
+                                    <span>${{ comic[0].prices[0].price }}</span>
+                                </div>
+                            </div>
+                            <div class="pay-process">
+                                <div class="item">
+                                    <span>Payment method</span>
+                                    <div>
+                                        <span class="material-icons-outlined">
+                                            credit_card
+                                        </span>
+                                        <p>Credit Card</p>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <span>Processing time</span>
+                                    <div>
+                                        <p>Up to 1 day</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="parcel-total">
+                            <div class="parcel">
+                                <span>1x of $ 3.99 interest-free</span>
+                            </div>
+                            <div class="total">
+                                <span>Total to pay:
+                                </span>
+                                <strong>$3,99</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <a href="">Checkout</a>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
